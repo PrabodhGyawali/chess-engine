@@ -1,6 +1,8 @@
 #include <unistd.h> 
 
 enum Side { WHITE, BLACK };
+enum Piece {PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING};
+enum MoveType {NORMAL, CAPTURE, EN_PASSANT, CHECK, PROMOTION};
 
 struct BoardState {
 	char board[8][8];
@@ -27,11 +29,15 @@ BoardState startState = {
 	.can_castle_black = {true, true}
 };
 
+struct Square {
+	uint8_t rank;
+	uint8_t file;
+}; // TODO: perhaps use smaller datatype as only need to fit: 8 vals: 3 bits 
 
-/** 
- * Before & after are numbers between 0 & 63
- */
+
 struct Move {
-	__uint8_t before;
-	__uint8_t after;
+	Square before;
+	Square after;
+	Piece piece;
+	MoveType type;
 };
