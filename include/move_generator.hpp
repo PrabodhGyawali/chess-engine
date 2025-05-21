@@ -1,6 +1,6 @@
 #pragma once
 
-#include "utils.h"
+#include "utils.hpp"
 #include <vector>
 
 using namespace std;
@@ -14,13 +14,14 @@ using namespace std;
 // Given a board state return an array of moves
 vector<Move> GenerateLegalMoves(BoardState& state, Side side);
 
+vector<Move> GeneratePawnMoves(BoardState& state, Side side, Square s);
 
-vector<Move> GenerateLegalPawnMoves(BoardState& state, Side side);
-vector<Move> GenerateLegalKnightMoves(BoardState& state, Side side);
-vector<Move> GenerateLegalBishopMoves(BoardState& state, Side side);
-vector<Move> GenerateLegalRookMoves(BoardState& state, Side side);
-vector<Move> GenerateLegalQueenMoves(BoardState& state, Side side);
-vector<Move> GenerateLegalKingMoves(BoardState& state, Side side);
+vector<Move> GenerateLegalPawnMoves(BoardState& state, Side side, Square s);
+vector<Move> GenerateLegalKnightMoves(BoardState& state, Side side, Square s);
+vector<Move> GenerateLegalBishopMoves(BoardState& state, Side side, Square s);
+vector<Move> GenerateLegalRookMoves(BoardState& state, Side side, Square s);
+vector<Move> GenerateLegalQueenMoves(BoardState& state, Side side, Square s);
+vector<Move> GenerateLegalKingMoves(BoardState& state, Side side, Square s);
 
 // Chess Programming Wiki related function definition
 vector<Move> GenerateLegalMoves(vector<Move>& move_list);

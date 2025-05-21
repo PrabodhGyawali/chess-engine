@@ -17,10 +17,11 @@ find_package(GTest REQUIRED)
 # Add source files
 add_library(chess_lib 
     src/move_generator.cpp
+    src/utils.cpp
 )
 
 # Create test executable
-add_executable(run_tests tests/move_generator_test.cpp)
+add_executable(run_tests tests/TestMoveGenerator.cpp)
 
 target_include_directories(chess_lib PUBLIC
     ${PROJECT_SOURCE_DIR}/include
